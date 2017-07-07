@@ -1,0 +1,19 @@
+# .zsh.d/40-screen
+#echo -en "\033]0;${USER}^${HOST}@${DISPLAY}:${UID}-${GID}:${TTY}:${SHELL}\007"
+clear && echo -en "\e[3J"
+
+echo -en "[$(neodate)]  ($(uname -sor))\\n"
+echo -en "$(hostname)  $(tty)"
+echo -en "\\n\\n\\033[0;36m"
+w
+echo -en "\\033[0m\\n\\n\\033[0;32m"
+ps -au
+
+if [[ $TERM = *-256color ]];then
+echo -en "\\n\\n"
+tuxfortune | lolcat
+else
+echo -en "\\033[0m\\n\\n\\033[0;33m"
+tuxfortune
+fi
+echo -en "\\033[0m\\n\\n"

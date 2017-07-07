@@ -1,0 +1,48 @@
+# .zsh.d/25-if_env
+#case $XDG_CURRENT_DESKTOP in
+#	KDE) export QT_QPA_PLATFORMTHEME=kde;;
+#	XFCE) export QT_QPA_PLATFORMTHEME=qt5ct;;
+#esac
+
+
+if [ $COLUMNS -ge 160 ]
+then
+export PROMPT="%n^%M [%y] [%D{AD %Y/%m/%d [%^a] %H:%M:%S(%s)}] [%?] (%d)>"
+export RPROMPT="%F{green}>%f"
+elif [ $COLUMNS -ge 80 ]
+then
+export PROMPT="%n^%M [%?] (%d)>"
+elif [  $COLUMNS -lt 80 ]
+then
+export PROMPT=". "
+fi
+
+export PATH="$PATH:~/.local/bin"
+
+
+
+export EDITOR=nano
+export BROWSER=firefox
+export PAGER=less
+export VISUAL=vim
+export LANG=zh_TW.UTF-8
+export LC_NUMERIC=zh_TW.UTF-8
+export LC_TIME=en_US.UTF-8
+export LC_MONETARY=zh_TW.UTF-8
+export LC_MEASUREMENT=zh_TW.UTF-8
+export LC_COLLATE=zh_TW.UTF-8
+export LANGUAGE=zh_TW:en_US
+export BROWSER=firefox
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+export FBFONT=/usr/share/kbd/consolefonts/ter-216n.psf.gz
+export LESSOPEN="| /usr/bin/source-highlight-esc.sh %s"
+export NNTPSERVER="netnews.hinet.net"
+export LESS=-R
+export LESS_TERMCAP_mb=$'\E[1;31m'
+export LESS_TERMCAP_md=$'\E[1;36m'
+export LESS_TERMCAP_me=$'\E[0m'
+export LESS_TERMCAP_so=$'\E[01;44;33m'
+export LESS_TERMCAP_se=$'\E[0m'
+export LESS_TERMCAP_us=$'\E[1;32m'
+export LESS_TERMCAP_ue=$'\E[0m'
+export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dswing.crossplatformlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'

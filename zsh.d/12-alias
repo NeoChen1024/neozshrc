@@ -1,0 +1,43 @@
+# .zsh.d/30-alias
+
+alias ls='ls --color=auto'
+alias dir='dir --color=auto'
+alias vdir='vdir --color=auto'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+alias llha="ls -lha"
+alias llhai="ls -lhai"
+alias du="du -ha"
+alias sudo="sudo "
+alias df="df -haT"
+alias watch="watch -tcxn 1"
+alias rm='rm -v --one-file-system'
+alias rmrf='/usr/bin/rm -rf'
+
+alias cls="clear && printf '\e[3J'"
+alias bbs="ssh bbsu@ptt.cc"
+alias fbmplayer="mplayer -vo fbdev2 -ao pulse"
+alias wttr.in="curl wttr.in/taichung"
+alias wttr.in-moon="curl wttr.in/moon"
+alias neodate='date +"AD %Y/%m/%d [%^a] %H:%M:%S(%s).%N GMT%:z"'
+alias white="echo -en '\e]P7ffffff'"
+alias p="mplayer -vo fbdev2 -ao pulse"
+alias ip="wget -qO- ipecho.net/plain"
+alias clock='tty-clock -scC 6 -f "AD %Y/%m/%d [%a] (%s)"'
+alias lock="cls && clock && vlock"
+alias lock-load="cls && ttyload && vlock"
+alias startx="startx ~/.xinitrc "
+alias suspend="sudo systemctl suspend && lock"
+alias tuxfortune="fortune | cowsay -f tux -W $(( $COLUMNS -3 ))"
+alias fbterm="bash ~/.local/bin/fbterm-bi ~/.local/fbterm.png"
+alias rwp="/usr/bin/rwp ~/Wallpaper"
+alias openmpt123="openmpt123 --pattern --channel-meters --samplerate 96000 --filter 1 --gain -12"
+
+alias vm="qemu-system-x86_64 -enable-kvm -smp 2 -m 2048"
+alias vm-uefi="qemu-system-x86_64 -smp 4 -enable-kvm  -m 2048 -bios /usr/share/ovmf/ovmf_code_x64.bin"
+alias vm-uefi-3d="qemu-system-x86_64 -smp 4 -enable-kvm  -m 2048 -vga virtio -bios /usr/share/ovmf/ovmf_code_x64.bin"
+
