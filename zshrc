@@ -1,10 +1,23 @@
-# Created by newuser for 5.2
-# Lines configured by zsh-newuser-install
+#    NeoZshRC v1.00
+#    Copyright (C) 2017 Kolei Chen (Neo_Chen)
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with this program. If not, see <http://www.gnu.org/licenses/>.
+
 HISTFILE=~/.histfile
 HISTSIZE=16384
 SAVEHIST=16384
 typeset -A key
-unset GLOBAL_RCS
 bindkey -e
 autoload -U colors && colors
 autoload -U run-help
