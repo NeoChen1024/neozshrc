@@ -28,8 +28,10 @@ alias help=run-help
 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-mesg y
+mesg y # 打開talk聊天支援
 
-for i in `ls ~/.zsh.d` ;do
+
+# 載入zsh.d裡的所有鬼東東
+for i in ~/.zsh.d/* ;do
 source ~/.zsh.d/$i
 done

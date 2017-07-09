@@ -1,4 +1,4 @@
-# .zsh.d/10-keys
+# .zsh.d/10-keys 定義所有按鍵
 key[Home]=${terminfo[khome]}
 key[End]=${terminfo[kend]}
 key[Insert]=${terminfo[kich1]}

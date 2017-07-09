@@ -4,6 +4,7 @@
 #	XFCE) export QT_QPA_PLATFORMTHEME=qt5ct;;
 #esac
 
+# 比grml更好用的PROMPT(自認為)
 
 if [ $COLUMNS -ge 160 ]
 then
@@ -19,7 +20,7 @@ fi
 
 export PATH="$PATH:~/.local/bin"
 
-
+# 神奇的變數
 
 export EDITOR=nano
 export BROWSER=firefox

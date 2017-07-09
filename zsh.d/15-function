@@ -1,4 +1,6 @@
-# .zsh.d/15-function]
+# .zsh.d/15-function
+
+# 彩色的man
 man() {
     LESS_TERMCAP_md=$'\e[01;31m' \
     LESS_TERMCAP_me=$'\e[0m' \
@@ -9,22 +11,30 @@ man() {
     command man "$@"
 }
 
+# 完全的清除scrollback
+cls() {clear && printf '\e[3J'}
+
+# 圖片pastebin
 elimage() {
 curl -F "name=@${1}" https://img.vim-cn.com/
 }
 
+# 文字pastebin
 vinergy () {
 curl -F 'vimcn=<-' https://cfp.vim-cn.com/
 }
 
+# 萬用pastebin
 pb () {
   curl -F "c=@${1:--}" https://fars.ee/
 }
 
+# 決定要不要使用VGA Software Cursor
 if [ $TERM = linux ];then
 
 export precmd () {
-echo -n "\033]0;${USER}^${HOST}@${DISPLAY}:${TTY}:[$(neodate)]:${PWD}\007"
+# 更新xterm/urxvt的titlebar
+echo -n "\033]0;${USER}^${HOST}@${DISPLAY}:${TTY}:[$(neodate)]:${PWD}\007" 
 echo -en "\e[?8c"
 }
 
@@ -36,6 +46,7 @@ echo -n "\033]0;${USER}^${HOST}@${DISPLAY}:${TTY}:[$(neodate)]:${PWD}\007"
 
 fi
 
+# resize支援
 export prompt-resize () {
 if [ $COLUMNS -ge 160 ];then
 	export PROMPT="%n^%M [%y] [%D{AD %Y/%m/%d [%^a] %H:%M:%S(%s)}] [%?] (%d)>"
@@ -46,4 +57,3 @@ elif [  $COLUMNS -lt 80 ];then
 	export PROMPT=". "
 fi
 }
-#while true ; do precmd ; sleep 0.5s ; done &
