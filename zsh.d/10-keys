@@ -42,3 +42,6 @@ bindkey "\e[7~" beginning-of-line
 bindkey "\eOH" beginning-of-line
 bindkey "\eOF" end-of-line
 
+zle -C complete complete-word complete-files
+bindkey '^X\t' complete
+complete-files () { compadd - $PREFIX* }

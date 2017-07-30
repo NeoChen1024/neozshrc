@@ -15,24 +15,28 @@ man() {
 cls() {clear && printf '\e[3J'}
 
 # 圖片pastebin
-elimage() {
+elimage()
+{
 curl -F "name=@${1}" https://img.vim-cn.com/
 }
 
 # 文字pastebin
-vinergy () {
+vinergy ()
+{
 curl -F 'vimcn=<-' https://cfp.vim-cn.com/
 }
 
 # 萬用pastebin
-pb () {
+pb ()
+{
   curl -F "c=@${1:--}" https://fars.ee/
 }
 
 # 決定要不要使用VGA Software Cursor
 if [ $TERM = linux ];then
 
-export precmd () {
+precmd ()
+{
 # 更新xterm/urxvt的titlebar
 echo -n "\033]0;${USER}^${HOST}@${DISPLAY}:${TTY}:[$(neodate)]:${PWD}\007" 
 echo -en "\e[?8c"
@@ -40,14 +44,16 @@ echo -en "\e[?8c"
 
 else
 
-export precmd () {
+precmd ()
+{
 echo -n "\033]0;${USER}^${HOST}@${DISPLAY}:${TTY}:[$(neodate)]:${PWD}\007"
 }
 
 fi
 
 # resize支援
-export prompt-resize () {
+prompt-resize ()
+{
 if [ $COLUMNS -ge 160 ];then
 	export PROMPT="%n^%M [%y] [%D{AD %Y/%m/%d [%^a] %H:%M:%S(%s)}] [%?] (%d)>"
 	export RPROMPT="%F{green}>%f"
@@ -56,4 +62,15 @@ elif [ $COLUMNS -ge 80 ];then
 elif [  $COLUMNS -lt 80 ];then
 	export PROMPT=". "
 fi
+}
+
+# 簡單的計算機
+calc()
+{
+echo "$*" | bc -l
+}
+
+gpg-simple-sign()
+{
+gpg -a --detach-sig --out "${1}.sig" "$i"
 }

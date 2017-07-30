@@ -14,6 +14,12 @@
 #    You should have received a copy of the GNU General Public License
 #    along with this program. If not, see <http://www.gnu.org/licenses/>.
 
+setopt no_global_rcs
+setopt inc_append_history
+setopt share_history
+setopt transient_rprompt
+setopt hist_ignore_space
+
 HISTFILE=~/.histfile
 HISTSIZE=16384
 SAVEHIST=16384
@@ -32,6 +38,6 @@ mesg y # 打開talk聊天支援
 
 
 # 載入zsh.d裡的所有鬼東東
-for i in ~/.zsh.d/* ;do
+for i in $(ls ~/.zsh.d) ;do
 source ~/.zsh.d/$i
 done
