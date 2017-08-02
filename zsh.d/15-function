@@ -72,5 +72,5 @@ echo "$*" | bc -l
 
 gpg-simple-sign()
 {
-gpg -a --detach-sig --out "${1}.sig" "$i"
+gpg -a --detach-sig --out "${1}.sig" "$1"
 }

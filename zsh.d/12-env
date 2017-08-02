@@ -8,8 +8,12 @@
 
 if [ $COLUMNS -ge 160 ]
 then
-export PROMPT="%n^%M [%y] [%D{AD %Y/%m/%d [%^a] %H:%M:%S(%s)}] [%?] (%d)>"
-export RPROMPT="%F{green}>%f"
+
+export PROMPT="[[%F{green}%B%n%b%f^%F{blue}%B%M%b%f %F{cyan}[%y]%f %F{red}%B[%D{AD %Y/%m/%d [%^a] %H:%M:%S(%s)}]%b%f %F{yellow}(%d)%f]]
+>%F{magenta}[%?]%f $>> "
+
+export RPROMPT="%F{green}<%f"
+
 elif [ $COLUMNS -ge 80 ]
 then
 export PROMPT="%n^%M [%?] (%d)>"
