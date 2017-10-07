@@ -1,7 +1,7 @@
 # .zsh.d/30-alias
 
 # 加顏色
-alias ls='ls --color=auto'
+alias ls='ls -F --color=auto'
 alias dir='dir --color=auto'
 alias vdir='vdir --color=auto'
 alias grep='grep --color=auto'
@@ -9,15 +9,14 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
 # 常用指令變體
-alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
-alias llha="ls -lha"
-alias llhai="ls -lhai"
-alias du="du -ha"
+alias ll="ls -alha"
+alias lli="ls -lhai"
+alias dua="du -ha"
 alias sudo="sudo "
-alias df="df -haT"
-alias watch="watch -tcxn 1"
+alias dfa="df -haT"
+alias watcht="watch -tcxn 1"
 alias rm='rm -v --one-file-system'
 alias rmrf='/usr/bin/rm -rf'
 
@@ -26,9 +25,9 @@ alias fbmplayer="mplayer -vo fbdev2 -ao pulse" # 在console下看番會用到
 alias wttr.in="curl wttr.in/taichung" # wttr.in 天氣查詢，可能需要調整所在城市
 alias wttr.in-moon="curl wttr.in/moon"
 alias neodate='date +"AD %Y/%m/%d [%^a] %H:%M:%S(%s).%N GMT%:z"' #我那神奇的日期格式
-alias ip="wget -qO- ipecho.net/plain" # 顯示外網ip
+alias ipecho="wget -qO- ipecho.net/plain" # 顯示外網ip
 alias startx="startx ~/.xinitrc "
-alias suspend="sudo systemctl suspend && vlock" # 在console下suspend並鎖定
+alias suspend="systemctl suspend && vlock" # 在console下suspend並鎖定
 alias tuxfortune="fortune | cowsay -f tux -W $(( $COLUMNS -3 ))" # 顯示神奇的文字
 alias openmpt123="openmpt123 --pattern --channel-meters --samplerate 96000 --filter 1 --gain -12" # 播放Modplug音樂時會用到
 
