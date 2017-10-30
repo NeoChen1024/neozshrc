@@ -43,16 +43,19 @@ if [ $TERM = linux ];then
 precmd ()
 {
 # 更新xterm/urxvt的titlebar
-echo -n "\033]0;${USER}^${HOST}@${DISPLAY}:${TTY}:[$(neodate)]:${PWD}\007" 
 echo -en "\e[?8c"
 }
 
-elif [[ ! $TERM = screen* ]] ; then
+elif [[ ! $TERM = tmux* ]] ; then
 
 precmd ()
 {
 echo -n "\033]0;${USER}^${HOST}@${DISPLAY}:${TTY}:[$(neodate)]:${PWD}\007"
 }
+
+else
+
+echo -n "\033]0;${HOST}\007"
 
 fi
 
@@ -70,4 +73,9 @@ gpg -a --detach-sig --out "${1}.sig" "$1"
 color256test()
 {
 (x=`tput op` y=`printf %76s`;for i in {0..256};do o=00$i;echo -e ${o:${#o}-3:3} `tput setaf $i;tput setab $i`${y// /=}$x;done) | less
+}
+
+switch_font_unifont()
+{
+	printf '\33]50;%s\007' 'xft:Unifont:pixelsize=16'
 }

@@ -2,10 +2,6 @@
 
 # 比grml更好用的PROMPT(自認為)
 
-if [[ $TERM = screen* ]] ; then
-export TERM=screen-256color
-fi
-
 if [ $TERM = xterm ] ; then
 export TERM=xterm-256color
 fi
@@ -25,11 +21,11 @@ export PROMPT="%K{4}$>>%k "
 fi
 
 export PATH="$PATH:"~/.local/bin
-export LD_LIBRARY_PATH="/lib:/usr/lib:":~/.local/lib
+#export LD_LIBRARY_PATH="/lib:/usr/lib:":~/.local/lib
 
 # 神奇的變數
 
-export EDITOR=nano
+export EDITOR=vim
 export BROWSER=firefox
 export PAGER=less
 export VISUAL=vim
