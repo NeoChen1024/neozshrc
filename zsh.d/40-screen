@@ -1,23 +1,24 @@
 # .zsh.d/40-screen
 cls # 清除畫面
 
-echo -en "[$(neodate)]  ($(uname -sor))\\n" 
+echo -e "[$(neodate)]  ($(uname -sor))" 
 # 日期，核心版本
 
-echo -en "$(hostname)  $(tty)"
+echo -e "$(hostname)  $(tty)"
 # 主機名稱，終端機
 
-echo -en "\\n\\n\\033[0;36m"
+echo -e '\e[0;36m'
 w
-echo -en "\\033[0m\\n\\n\\033[0;32m"
+echo -e '\e[0;32m'
 ps -au
 
 # 簡單判斷可不可以使用lolcat (需要256色支援)
 if [[ $TERM = *-256color ]];then
-echo -en "\\n\\n"
-tuxfortune | lolcat
+	echo -e '\n'
+	tuxfortune | lolcat
 else
-echo -en "\\033[0m\\n\\n\\033[0;33m"
-tuxfortune
+	echo -e '\n\e[33m'
+	tuxfortune
 fi
-echo -en "\\033[0m\\n\\n"
+
+echo -e "\e[0m\n"

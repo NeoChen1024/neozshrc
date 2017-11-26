@@ -37,32 +37,26 @@ pb ()
   curl -F "c=@${1:--}" https://fars.ee/
 }
 
-# 決定要不要使用VGA Software Cursor
+# 決定要不要使用VGA Software Cursor （變成 block cursor）
 if [ $TERM = linux ];then
 
-precmd ()
-{
-# 更新xterm/urxvt的titlebar
-echo -en "\e[?8c"
-}
-
-elif [[ ! $TERM = tmux* ]] ; then
-
-precmd ()
-{
-echo -n "\033]0;${USER}^${HOST}@${DISPLAY}:${TTY}:[$(neodate)]:${PWD}\007"
-}
+	precmd ()
+	{
+	echo -en "\e[?8c"
+	}
 
 else
-
-echo -n "\033]0;${HOST}\007"
-
+	precmd ()
+	{
+		# 更新xterm/urxvt的titlebar
+		echo -en "\e]0;${USER}^${HOST}@${DISPLAY}:${TTY}:${PWD}\007"
+	}
 fi
 
 # 簡單的計算機
 calc()
 {
-echo "$*" | bc -l
+command echo "$*" | bc -l
 }
 
 gpg-simple-sign()
@@ -72,10 +66,12 @@ gpg -a --detach-sig --out "${1}.sig" "$1"
 
 color256test()
 {
-(x=`tput op` y=`printf %76s`;for i in {0..256};do o=00$i;echo -e ${o:${#o}-3:3} `tput setaf $i;tput setab $i`${y// /=}$x;done) | less
-}
-
-switch_font_unifont()
-{
-	printf '\33]50;%s\007' 'xft:Unifont:pixelsize=16'
+	(
+	x=`tput op`
+	y=`printf %76s`
+	for i in {0..256} ;do
+		o=00$i
+		echo -e "${o:${#o}-3:3} $(tput setaf $i;tput setab $i)${y// /=}$x"
+	done
+	) | less
 }
