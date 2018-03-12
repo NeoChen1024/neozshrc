@@ -11,9 +11,10 @@ alias egrep='egrep --color=auto'
 # 常用指令變體
 alias la='ls -A'
 alias l='ls -CF'
-alias ll="ls -alha"
+alias ll="ls -lha"
 alias lli="ls -lhai"
 alias dua="du -ha"
+alias dus='du -hs'
 alias sudo="sudo "
 alias dfa="df -haT"
 alias watcht="watch -tcxn 1"
@@ -27,11 +28,13 @@ alias wttr.in-moon="curl wttr.in/moon" # wttr.in 月相查詢
 alias neodate='date +"AD %Y/%m/%d [%^a] %H:%M:%S(%s).%N GMT%:z"' #我那神奇的日期格式
 alias ipecho="wget -qO- ipecho.net/plain" # 顯示真正的 IP
 alias tuxfortune="fortune | cowsay -f tux -W $(( $COLUMNS -3 ))" # 顯示神奇的文字
-alias openmpt123="openmpt123 --pattern --channel-meters --samplerate 96000 --filter 1 --gain -12" # 播放Modplug音樂時會用到
+alias openmpt123-custom="openmpt123 --pattern --channel-meters --samplerate 96000 --filter 1 --gain -12" # 播放Modplug音樂時會用到
+alias xclip-read2clipboard
+
 
 alias vm="qemu-system-x86_64 -enable-kvm -smp 2 -m 2048" # 好用的qemu preset
-alias vm-uefi="qemu-system-x86_64 -smp 4 -enable-kvm -m 2048 -bios /usr/share/ovmf/ovmf_code_x64.bin"
-alias vm-uefi-3d="qemu-system-x86_64 -smp 4 -enable-kvm -m 2048 -vga virtio -bios /usr/share/ovmf/ovmf_code_x64.bin"
+alias vm-uefi="qemu-system-x86_64 -smp 4 -enable-kvm -m 2048 -pflash ~/.local/share/OVMF_CODE.fd"
+alias vm-uefi-3d="qemu-system-x86_64 -smp 4 -enable-kvm -m 2048 -vga virtio -pflash ~/.local/share/OVMF_CODE.fd"
 
 # 關掉 GDB 的啟動訊息
 alias gdb="gdb -q"

@@ -11,14 +11,6 @@ echo -e '\e[0;36m'
 w
 echo -e '\e[0;32m'
 ps -au
-
-# 簡單判斷可不可以使用lolcat (需要256色支援)
-if [[ $TERM = *-256color ]];then
-	echo -e '\n'
-	tuxfortune | lolcat
-else
-	echo -e '\n\e[33m'
-	tuxfortune
-fi
-
-echo -e "\e[0m\n"
+echo -e '\e[1;33m'
+tuxfortune
+echo -e "\e[0m"

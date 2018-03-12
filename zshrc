@@ -1,5 +1,5 @@
 #    NeoZshRC v1.00
-#    Copyright (C) 2017 Kolei Chen (Neo_Chen)
+#    Copyright (C) 2017 Neo_Chen
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -36,8 +36,13 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 
 mesg y # 打開talk聊天支援
 
+if [[ $TTY = /dev/tty* ]] ; then
+	export LANGUAGE="en_US.UTF-8"
+	export LANG="en_US.UTF-8"
+	fbterm
+fi
 
 # 載入zsh.d裡的所有鬼東東
-for i in ~/.zsh.d/* ;do
-source $i
+for i in $(ls ~/.zsh.d) ;do
+source ~/.zsh.d/$i
 done

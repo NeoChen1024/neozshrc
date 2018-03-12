@@ -2,18 +2,7 @@
 
 reenv()
 {
-source ~/.zsh.d/12-env
-}
-
-# 彩色的man
-man() {
-    LESS_TERMCAP_md=$'\e[01;31m' \
-    LESS_TERMCAP_me=$'\e[0m' \
-    LESS_TERMCAP_se=$'\e[0m' \
-    LESS_TERMCAP_so=$'\e[01;44;33m' \
-    LESS_TERMCAP_ue=$'\e[0m' \
-    LESS_TERMCAP_us=$'\e[01;32m' \
-    command man "$@"
+	source ~/.zsh.d/12-env
 }
 
 # 完全的清除scrollback
@@ -74,4 +63,33 @@ color256test()
 		echo -e "${o:${#o}-3:3} $(tput setaf $i;tput setab $i)${y// /=}$x"
 	done
 	) | less
+}
+
+msg_echo()
+{
+	echo -e "\e[44m>>\e[0m \e[32m${@}\e[0m"
+}
+
+tmux_title()
+{
+	printf "\033k${*}\033\\\\"
+}
+
+batch_picture_optim()
+{
+	(
+	for i in *
+	do
+		echo -e "\e[44m>>\e[0m \e[32m$i\e[0m"
+		case "$i" in
+			*.jpg|*.jpeg)	jpegoptim -s -v -m85 "$i" ;;
+			*.png)	convert "$i" -quality 85 "${i}.jpg" && jpegoptim -s -v && rm "$i" ;;
+		esac
+	done
+	)
+}
+
+xfce_wallpaper_query()
+{
+	xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitor0/workspace0/last-image
 }
