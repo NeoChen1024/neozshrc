@@ -1,12 +1,12 @@
-# .zsh.d/15-function
+# .zsh.d/50-function
 
 reenv()
 {
-	source ~/.zsh.d/12-env
+	source ~/.zsh.d/20-env
 }
 
 # 完全的清除scrollback
-cls() {tput clear && tput reset}
+cls() {tput clear && tput init}
 
 # 圖片pastebin
 elimage()
@@ -27,7 +27,7 @@ pb ()
 }
 
 # 決定要不要使用VGA Software Cursor （變成 block cursor）
-if [ $TERM = linux ];then
+if [ $TERM = linux ]&&[[ $TERM != vt* ]]; then
 
 	precmd ()
 	{
@@ -92,4 +92,17 @@ batch_picture_optim()
 xfce_wallpaper_query()
 {
 	xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitor0/workspace0/last-image
+}
+
+corecmp()
+{
+	msg_echo "Compressing Coredump"
+	time nice -n 20 lbzip2 -9vvn 4 *.core
+	mv *.core.* ~/Coredump
+	msg_echo "Done!"
+}
+
+mount_encrypted()
+{
+	~/ENCRYPTED/mount.sh
 }

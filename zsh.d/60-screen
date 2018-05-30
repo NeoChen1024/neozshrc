@@ -1,7 +1,7 @@
-# .zsh.d/40-screen
+# .zsh.d/60-screen
 cls # 清除畫面
 
-echo -e "[$(neodate)]  ($(uname -sor))" 
+echo -e "[$(neodate)]  ($(uname -sr))" 
 # 日期，核心版本
 
 echo -e "$(hostname)  $(tty)"
@@ -10,7 +10,7 @@ echo -e "$(hostname)  $(tty)"
 echo -e '\e[0;36m'
 w
 echo -e '\e[0;32m'
-ps -au
+ps -l
 echo -e '\e[1;33m'
-tuxfortune
+fortune
 echo -e "\e[0m"

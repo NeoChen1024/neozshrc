@@ -1,4 +1,4 @@
-# .zsh.d/20-completions 設定completion
+# .zsh.d/30-completions 設定completion
 
 if (( ${+terminfo[smkx]} )) && (( ${+terminfo[rmkx]} )); then
     function zle-line-init () {

@@ -45,3 +45,5 @@ bindkey "\eOF" end-of-line
 zle -C complete complete-word complete-files
 bindkey '^X\t' complete
 complete-files () { compadd - $PREFIX* }
+
+stty status '^T'
