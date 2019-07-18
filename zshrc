@@ -14,6 +14,8 @@
 #    You should have received a copy of the GNU General Public License
 #    along with this program. If not, see <http://www.gnu.org/licenses/>.
 
+declare OS="OTHER"
+declare -i NJOBS=1
 setopt no_global_rcs
 setopt inc_append_history
 setopt share_history
@@ -30,13 +32,34 @@ autoload -U run-help
 autoload run-help-git
 autoload run-help-svn
 autoload run-help-svk
+autoload zmv
 alias help=run-help
-umask 033
+
+umask 037
 mesg y # 打開talk聊天支援
+
+# Platform Specific
+case $OSTYPE in
+	*bsd*) OS="BSD";;
+	linux*) OS="LINUX";;
+esac
+
 # 載入zsh.d裡的所有鬼東東
 for i in ~/.zsh.d/??-* ;do
 source $i
 done
+
+try-source()
+{
+	if [ -f "$1" ]; then
+		source "$1"
+	fi
+}
+
 # Plugins
-source /usr/local/share/zsh-navigation-tools/zsh-navigation-tools.plugin.zsh
-source ~/.local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+if [ OS = "BSD" ]
+	try-source /usr/local/share/zsh-navigation-tools/zsh-navigation-tools.plugin.zsh
+else
+	try-source ~/.local/share/zsh-navigation-tools/zsh-navigation-tools.plugin.zsh
+fi
+try-source ~/.local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

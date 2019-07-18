@@ -27,30 +27,18 @@ pb ()
 }
 
 # 決定要不要使用VGA Software Cursor （變成 block cursor）
-if [ $TERM = linux ]&&[[ $TERM != vt* ]]; then
+if [ $TERM = linux ]; then
 
 	precmd ()
 	{
-	echo -en "\e[?8c"
+		echo -en "\e[?8c"
 	}
 
-else
-	precmd ()
-	{
-		# 更新xterm/urxvt的titlebar
-		echo -en "\e]0;${USER}^${HOST}@${DISPLAY}:${TTY}:${PWD}\007"
-	}
 fi
-
-# 簡單的計算機
-calc()
-{
-command echo "$*" | bc -l
-}
 
 gpg-simple-sign()
 {
-gpg -a --detach-sig --out "${1}.sig" "$1"
+	gpg -a --detach-sig --out "${1}.sig" "$1"
 }
 
 color256test()
@@ -70,39 +58,41 @@ msg_echo()
 	echo -e "\e[44m>>\e[0m \e[32m${@}\e[0m"
 }
 
-tmux_title()
-{
-	printf "\033k${*}\033\\\\"
-}
-
 batch_picture_optim()
 {
-	(
-	for i in *
-	do
-		echo -e "\e[44m>>\e[0m \e[32m$i\e[0m"
-		case "$i" in
-			*.jpg|*.jpeg)	jpegoptim -s -v -m85 "$i" ;;
-			*.png)	convert "$i" -quality 85 "${i}.jpg" && jpegoptim -s -v && rm "$i" ;;
-		esac
-	done
-	)
+	find . \( -name '*.jpg' -or -name '*.jpeg' \) -print0 | parallel --bar -0 -j 0 jpegoptim -v
+	find . -name '*.png' -print0 | parallel --bar -0 -j 0 optipng -v -o7
 }
 
-xfce_wallpaper_query()
+wttr.in()
 {
-	xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitor0/workspace0/last-image
+	location="${1:-Taichung}"
+	curl https://wttr.in/"$location"
 }
 
-corecmp()
+xcopy()
 {
-	msg_echo "Compressing Coredump"
-	time nice -n 20 lbzip2 -9vvn 4 *.core
-	mv *.core.* ~/Coredump
-	msg_echo "Done!"
+	[ -n "$1" ]&&xclip -selection clipboard "$1"||xclip -selection clipboard
 }
 
-mount_encrypted()
+
+to_opus()
 {
-	~/ENCRYPTED/mount.sh
+	ffmpeg -i "$1" -vn -c:a libopus -b:a 256K "${1%.*}.opus"
+}
+
+mkcd()
+{
+	mkdir "$1"
+	cd "$1"
+}
+
+cl()
+{
+	if [ -z "${1}" ]; then
+		cd "$HOME"
+	else
+		cd "$1"
+	fi
+	ls
 }

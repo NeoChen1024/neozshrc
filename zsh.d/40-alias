@@ -1,32 +1,28 @@
 # .zsh.d/40-alias
 
-alias fls='/bin/ls -FG'
-alias fll='fls -lha'
-alias ls='gls -F --color=auto'
-alias dir='dir'
-alias vdir='vdir'
-alias grep='grep'
-alias fgrep='fgrep'
-alias egrep='egrep'
+if [ OS = "BSD" ]; then
+	alias fls='/bin/ls -FG'
+	alias fll='fls -lha'
+	alias ls='gls -F --color=auto'
+	alias neodate="gdate '+AD %Y/%m/%d [%^a] %H:%M:%S(%s.%N) GMT%:z'"
+	alias zfs-ls="zfs list -t all -o name,used,referenced,type,mountpoint,compression,compressratio,recordsize,available"
+else
+	alias ls='ls -F --color=auto'
+	alias neodate="date '+AD %Y/%m/%d [%^a] %H:%M:%S(%s.%N) GMT%:z'"
+
+	alias vm="qemu-system-x86_64 -smp 2 -m 2048"
+	alias vm-uefi="qemu-system-x86_64 -smp 4 -m 2048 -pflash ~/.local/share/OVMF-pure-efi.fd"
+	alias vm-uefi-3d="qemu-system-x86_64 -smp 4 -m 2048 -vga virtio -pflash ~/.local/share/OVMF-pure-efi.fd"
+fi
 
 alias la='ls -A'
 alias l='ls -CF'
-alias ll="ls --time-style=+'[AD %Y/%m/%d [%^a] %H:%M:%S(%s.%N) GMT%:z]' -lha"
+alias ll="ls --time-style=+'[AD %Y/%m/%d [%^a] %H:%M:%S(%s.%N)]' -lha"
 alias lli="ll -i"
 alias dua="du -ha"
 alias dus='du -hs'
 alias sudo="sudo "
 alias dfa="df -hi"
-alias rm='rm -v'
-alias rmrf='/bin/rm -rf'
 
-alias wttr.in="curl wttr.in/taichung"
-alias wttr.in-moon="curl wttr.in/moon"
-alias neodate="gdate '+AD %Y/%m/%d [%^a] %H:%M:%S(%s.%N) GMT%:z'"
 alias date_stamp="date +'AD,%Y,%m,%d,%a,%H,%M,%S,%s'"
-alias ipecho="wget -qO- ipecho.net/plain"
-alias tuxfortune="fortune | cowsay -f tux -W $(( $COLUMNS -3 ))"
-
-alias vm="qemu-system-x86_64 -smp 2 -m 2048"
-alias vm-uefi="qemu-system-x86_64 -smp 4 -m 2048 -pflash ~/.local/share/OVMF_CODE.fd"
-alias vm-uefi-3d="qemu-system-x86_64 -smp 4 -m 2048 -vga virtio -pflash ~/.local/share/OVMF_CODE.fd"
+alias ipecho="curl ipecho.net/plain"
