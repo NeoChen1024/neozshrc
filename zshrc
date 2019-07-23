@@ -57,7 +57,7 @@ try-source()
 }
 
 # Plugins
-if [ OS = "BSD" ];then
+if [ $OS = "BSD" ];then
 	try-source /usr/local/share/zsh-navigation-tools/zsh-navigation-tools.plugin.zsh
 else
 	try-source ~/.local/share/zsh-navigation-tools/zsh-navigation-tools.plugin.zsh

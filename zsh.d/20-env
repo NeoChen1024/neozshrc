@@ -52,12 +52,12 @@ export LYNX_CFG=~/.lynx.cfg
 export SOCKS5_SERVER=127.0.0.1:10800
 export TZ=Asia/Taipei
 
-if [ OS = "BSD" ]; then
+if [ $OS = "BSD" ]; then
 	export AUTOCONF_VERSION=2.69
 	export AUTOMAKE_VERSION=1.15
 fi
 
-if [ OS = "LINUX" ]; then
+if [ $OS = "LINUX" ]; then
 	export LESSOPEN="| /usr/bin/source-highlight-esc.sh %s"
 else
 	export LESSOPEN="| /usr/local/bin/source-highlight-esc.sh %s"

@@ -1,6 +1,6 @@
 # .zsh.d/40-alias
 
-if [ OS = "BSD" ]; then
+if [ $OS = "BSD" ]; then
 	alias fls='/bin/ls -FG'
 	alias fll='fls -lha'
 	alias ls='gls -F --color=auto'

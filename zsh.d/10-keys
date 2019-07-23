@@ -46,6 +46,6 @@ zle -C complete complete-word complete-files
 bindkey '^X\t' complete
 complete-files () { compadd - $PREFIX* }
 
-if [ OS = "BSD" ]; then
+if [ $OS = "BSD" ]; then
 	stty status '^T'
 fi
