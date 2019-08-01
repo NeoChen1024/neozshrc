@@ -60,8 +60,8 @@ msg_echo()
 
 batch_picture_optim()
 {
-	find . \( -name '*.jpg' -or -name '*.jpeg' \) -print0 | parallel --bar -0 -j 0 jpegoptim -v
-	find . -name '*.png' -print0 | parallel --bar -0 -j 0 optipng -v -o7
+	find . \( -name '*.jpg' -or -name '*.jpeg' \) -print0 | parallel --bar -0 -j $NJOBS jpegoptim -v
+	find . -name '*.png' -print0 | parallel --bar -0 -j $NJOBS optipng -v -o7
 }
 
 wttr.in()
