@@ -10,7 +10,7 @@ echo -e "$(hostname)  $(tty)"
 echo -e '\e[0;36m'
 w
 echo -e '\e[0;32m'
-ps -l
+cal
 echo -e '\e[1;33m'
 fortune
 echo -e "\e[0m"
