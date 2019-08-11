@@ -96,3 +96,14 @@ cl()
 	fi
 	ls
 }
+
+try-source()
+{
+	for plugin_path in /usr/share/zsh/plugins /usr/local/share/zsh/plugins ~/.local/share; do
+		file="$plugin_path/$1/$1.plugin.zsh"
+		if [ -f "$file" ]; then
+			source "$file"
+			return 0
+		fi
+	done
+}
