@@ -11,4 +11,5 @@ esac
 
 cp zshrc ~/.zshrc
 cp zshenv ~/.zshenv
+[ -d ~/.zsh.d ] || mkdir ~/.zsh.d
 cp -rv zsh.d/* ~/.zsh.d
