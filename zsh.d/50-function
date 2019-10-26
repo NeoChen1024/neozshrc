@@ -99,7 +99,7 @@ cl()
 
 try-source()
 {
-	for plugin_path in /usr/share/zsh/plugins /usr/local/share/zsh/plugins ~/.local/share; do
+	for plugin_path in ~/.local/share ~/VCS ~/vcs /usr/share/zsh/plugins /usr/local/share/zsh/plugins; do
 		file="$plugin_path/$1/$1.plugin.zsh"
 		if [ -f "$file" ]; then
 			source "$file"
