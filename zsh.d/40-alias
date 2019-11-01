@@ -26,3 +26,5 @@ alias dfa="df -hi"
 
 alias date_stamp="date +'AD,%Y,%m,%d,%a,%H,%M,%S,%s'"
 alias ipecho="curl ipecho.net/plain"
+
+alias t=tmux
