@@ -56,3 +56,5 @@ if [ $OS = "LINUX" ]; then
 else
 	export LESSOPEN="| /usr/local/bin/source-highlight-esc.sh %s"
 fi
+
+export SBCL_HOME="$HOME/.local/lib/sbcl"

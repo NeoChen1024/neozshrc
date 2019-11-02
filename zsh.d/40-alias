@@ -28,3 +28,4 @@ alias date_stamp="date +'AD,%Y,%m,%d,%a,%H,%M,%S,%s'"
 alias ipecho="curl ipecho.net/plain"
 
 alias t=tmux
+alias xmr-txid='openssl rand -hex 8'
