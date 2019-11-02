@@ -9,7 +9,9 @@ case "$answer" in
 	[Nn]|no) exit 0;;
 esac
 
-cp zshrc ~/.zshrc
-cp zshenv ~/.zshenv
-[ -d ~/.zsh.d ] || mkdir ~/.zsh.d
-cp -rv zsh.d/* ~/.zsh.d
+PREFIX="${PREFIX:-$HOME}"
+
+cp zshrc "$PREFIX/.zshrc"
+cp zshenv "$PREFIX/.zshenv"
+[ -d "$PREFIX/.zsh.d" ] || mkdir "$PREFIX/.zsh.d"
+cp -rv zsh.d/* "$PREFIX/.zsh.d"
