@@ -4,11 +4,11 @@ if [ $OS = "BSD" ]; then
 	alias fls='/bin/ls -FG'
 	alias fll='fls -lha'
 	alias ls='gls -F --color=auto'
-	alias neodate="gdate '+AD %Y/%m/%d [%^a] %H:%M:%S(%s.%N) GMT%:z'"
+	alias neodate="gdate +'%Y%m%dT%H%M%S%z'"
 	alias zfs-ls="zfs list -t all -o name,used,referenced,type,mountpoint,compression,compressratio,recordsize,available"
 else
 	alias ls='ls -F --color=auto'
-	alias neodate="date '+AD %Y/%m/%d [%^a] %H:%M:%S(%s.%N) GMT%:z'"
+	alias neodate="date +'%Y%m%dT%H%M%S%z'"
 
 	alias vm="qemu-system-x86_64 -smp 2 -m 2048"
 	alias vm-uefi="qemu-system-x86_64 -smp 4 -m 2048 -pflash ~/.local/share/OVMF-pure-efi.fd"
@@ -24,7 +24,7 @@ alias dus='du -hs'
 alias sudo="sudo "
 alias dfa="df -hi"
 
-alias date_stamp="date +'AD,%Y,%m,%d,%a,%H,%M,%S,%s'"
+alias date_stamp="date +'%Y%m%dT%H%M%S%z'"
 alias ipecho="curl ipecho.net/plain"
 
 alias t=tmux
