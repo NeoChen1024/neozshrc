@@ -2,16 +2,16 @@
 #    Copyright (C) 2017 Neo_Chen
 
 declare OS="OTHER"
-declare -i NJOBS=1
+declare -i NJOBS=4
 setopt no_global_rcs
 setopt inc_append_history
 setopt share_history
 setopt transient_rprompt
 setopt hist_ignore_space
 
-HISTFILE=~/.histfile
-HISTSIZE=4096
-SAVEHIST=4096
+HISTFILE=i"$HOME/.histfile"
+HISTSIZE=65536
+SAVEHIST=65536
 typeset -A key
 bindkey -e
 autoload -U colors && colors
