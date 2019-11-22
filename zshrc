@@ -9,7 +9,7 @@ setopt share_history
 setopt transient_rprompt
 setopt hist_ignore_space
 
-HISTFILE=i"$HOME/.histfile"
+HISTFILE="$HOME/.histfile"
 HISTSIZE=65536
 SAVEHIST=65536
 typeset -A key
