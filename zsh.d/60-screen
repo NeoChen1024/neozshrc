@@ -1,5 +1,5 @@
 # .zsh.d/60-screen
-cls # 清除畫面
+#cls # 清除畫面
 
 echo -e "[$(neodate)]  ($(uname -sr))" 
 # 日期，核心版本

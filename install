@@ -11,7 +11,8 @@ esac
 
 PREFIX="${PREFIX:-$HOME}"
 
-cp zshrc "$PREFIX/.zshrc"
-cp zshenv "$PREFIX/.zshenv"
+cp -v zshrc "$PREFIX/.zshrc"
+cp -v zshenv "$PREFIX/.zshenv"
+cp -v zprofile "$PREFIX/.zprofile"
 [ -d "$PREFIX/.zsh.d" ] || mkdir "$PREFIX/.zsh.d"
 cp -rv zsh.d/* "$PREFIX/.zsh.d"

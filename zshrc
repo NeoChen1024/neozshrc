@@ -2,7 +2,7 @@
 #    Copyright (C) 2017 Neo_Chen
 
 declare OS="OTHER"
-declare -i NJOBS=4
+declare -i NJOBS=`nproc`
 setopt no_global_rcs
 setopt inc_append_history
 setopt share_history
@@ -20,7 +20,6 @@ autoload run-help-git
 autoload run-help-svn
 autoload run-help-svk
 autoload zmv
-alias help=run-help
 
 umask 037
 mesg y # 打開talk聊天支援
