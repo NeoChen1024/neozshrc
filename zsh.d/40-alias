@@ -4,28 +4,24 @@ if [ $OS = "BSD" ]; then
 	alias fls='/bin/ls -FG'
 	alias fll='fls -lha'
 	alias ls='gls -F --color=auto'
-	alias neodate="gdate +'%Y%m%dT%H%M%S%z'"
+	alias neodate="date +'%Y%m%dT%H%M%S%z'"
 	alias zfs-ls="zfs list -t all -o name,used,referenced,type,mountpoint,compression,compressratio,recordsize,available"
 else
 	alias ls='ls -F --color=auto'
 	alias neodate="date +'%Y%m%dT%H%M%S%z'"
 
-	alias vm="qemu-system-x86_64 -smp 2 -m 2048"
-	alias vm-uefi="qemu-system-x86_64 -smp 4 -m 2048 -pflash ~/.local/share/OVMF-pure-efi.fd"
-	alias vm-uefi-3d="qemu-system-x86_64 -smp 4 -m 2048 -vga virtio -pflash ~/.local/share/OVMF-pure-efi.fd"
+	alias vm="qemu-system-x86_64 -smp 2 -m 2048 -accel kvm"
 fi
 
 alias la='ls -A'
 alias l='ls -CF'
-alias ll="ls --time-style=+'[AD %Y/%m/%d [%^a] %H:%M:%S(%s.%N)]' -lha"
+alias ll="ls --time-style=+'[%Y%m%dT%H%M%S%z]' -lha"
 alias lli="ll -i"
-alias dua="du -ha"
-alias dus='du -hs'
 alias sudo="sudo "
-alias dfa="df -hi"
 
 alias date_stamp="date +'%Y%m%dT%H%M%S%z'"
 alias ipecho="curl ipecho.net/plain"
 
+# Shortcut to save keystrokes
 alias t=tmux
-alias xmr-txid='openssl rand -hex 8'
+alias q=exit
