@@ -9,6 +9,7 @@ if [ $OS = "BSD" ]; then
 else
 	alias ls='ls -F --color=auto'
 	alias neodate="date +'%Y%m%dT%H%M%S%z'"
+	alias grep='grep --color=auto'
 
 	alias vm="qemu-system-x86_64 -smp 2 -m 2048 -accel kvm"
 fi
