@@ -30,6 +30,15 @@ case $OSTYPE in
 	linux*) OS="LINUX";;
 esac
 
+# Load Host Specific RC
+host_specific()
+{
+	local rc="$HOME/.zsh.d/host.$(hostname -s).rc"
+	if [ -e "$rc" ]; then
+		source "$rc"
+	fi
+}
+
 # 載入zsh.d裡的所有鬼東東
 for i in ~/.zsh.d/??-* ;do
 source $i

@@ -13,10 +13,4 @@ echo -e '\e[0;32m'
 cal
 echo -e '\e[1;33m'
 fortune
-
-if [ $OS != BSD ]; then
-	echo -e '\e[1;36m'
-	acpi
-fi
-
 echo -e "\e[0m"

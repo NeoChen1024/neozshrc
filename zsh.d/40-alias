@@ -19,6 +19,7 @@ alias l='ls -CF'
 alias ll="ls --time-style=+'[%Y%m%dT%H%M%S%z]' -lha"
 alias lli="ll -i"
 alias sudo="sudo "
+alias grep='grep --color=auto'
 
 alias date_stamp="date +'%Y%m%dT%H%M%S%z'"
 alias ipecho="curl ipecho.net/plain"

@@ -1,4 +1,9 @@
-# .zsh.d/10-keys 定義所有按鍵
+# .zsh.d/10-keys
+# Define all key
+
+STAGE="keys"
+host_specific
+
 key[Home]=${terminfo[khome]}
 key[End]=${terminfo[kend]}
 key[Insert]=${terminfo[kich1]}

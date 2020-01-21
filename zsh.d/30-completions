@@ -1,5 +1,8 @@
 # .zsh.d/30-completions 設定completion
 
+STAGE=completion
+host_specific
+
 if (( ${+terminfo[smkx]} )) && (( ${+terminfo[rmkx]} )); then
     function zle-line-init () {
         echoti smkx
