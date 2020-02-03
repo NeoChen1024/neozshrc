@@ -120,3 +120,8 @@ xdisp()
 {
 	export DISPLAY="${1:-:0}"
 }
+
+scratchpad()
+{
+	truncate -s 0 "$1"
+}
