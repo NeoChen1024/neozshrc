@@ -2,12 +2,15 @@
 set -e
 
 echo 'Will overwrite your current configuration, continue? (Yes,no)'
-read answer
 
-case "$answer" in
-	[Yy]*|"");;
-	[Nn]|no) exit 0;;
-esac
+if [ "$1" != "batch" ]; then
+	read answer
+
+	case "$answer" in
+		[Yy]*|"");;
+		[Nn]|no) exit 0;;
+	esac
+fi
 
 PREFIX="${PREFIX:-$HOME}"
 
