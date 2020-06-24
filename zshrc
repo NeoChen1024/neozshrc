@@ -8,6 +8,7 @@ setopt inc_append_history
 setopt share_history
 setopt transient_rprompt
 setopt hist_ignore_space
+setopt auto_cd
 
 HISTFILE="$HOME/.histfile"
 HISTSIZE=65536
