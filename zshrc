@@ -2,7 +2,19 @@
 #    Copyright (C) 2017 Neo_Chen
 
 declare OS="OTHER"
-declare -i NJOBS=`nproc`
+
+# Platform Specific
+case $OSTYPE in
+	*bsd*) OS="BSD";;
+	linux*) OS="LINUX";;
+esac
+
+declare -i NJOBS=1
+
+if [ "$OS" = "LINUX" ]; then
+	export NJOBS=`nproc`
+fi
+
 setopt no_global_rcs
 setopt inc_append_history
 setopt share_history
@@ -24,12 +36,6 @@ autoload zmv
 
 umask 037
 mesg y # 打開talk聊天支援
-
-# Platform Specific
-case $OSTYPE in
-	*bsd*) OS="BSD";;
-	linux*) OS="LINUX";;
-esac
 
 # Load Host Specific RC
 host_specific()
