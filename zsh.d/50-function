@@ -64,17 +64,17 @@ batch_picture_optim()
 		for dir in "$@"; do
 			find "$dir" \( -name '*.jpg' -or -name '*.jpeg' \) -print0
 		done
-	) | parallel --bar -0 -j $NJOBS jpegoptim -v
+	) | nice -n 20 parallel --bar -0 -j $NJOBS jpegoptim -v
 	(
 		for dir in "$@"; do
 			find "$dir" -name '*.png' -print0
 		done
-	) | parallel --bar -0 -j $NJOBS optipng -v -o7
+	) | nice -n 20 parallel --bar -0 -j $NJOBS optipng -v -o7
 }
 
 wttr.in()
 {
-	local location="${1:-Taichung}"
+	location="${1:-Taichung}"
 	curl https://wttr.in/"$location"
 }
 

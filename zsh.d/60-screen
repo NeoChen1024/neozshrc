@@ -1,5 +1,5 @@
 # .zsh.d/60-screen
-#cls # 清除畫面
+FILE="$HOME/misc/note/todo.txt"
 
 echo -e "[$(neodate)]  ($(uname -sr))" 
 # 日期，核心版本
@@ -12,5 +12,10 @@ w
 echo -e '\e[0;32m'
 cal
 echo -e '\e[1;33m'
+
+if [ -e "$FILE" ]; then
+	cat "$FILE"
+	echo -e '\n===========\n'
+fi
 fortune
 echo -e "\e[0m"
