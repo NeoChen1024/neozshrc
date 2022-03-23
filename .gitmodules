@@ -1,6 +1,6 @@
 [submodule "zsh-navigation-tools"]
 	path = zsh-navigation-tools
-	url = https://github.com/psprint/zsh-navigation-tools.git
+	url = https://github.com/z-shell/zsh-navigation-tools.git
 [submodule "fast-syntax-highlighting"]
 	path = fast-syntax-highlighting
 	url = https://github.com/zdharma/fast-syntax-highlighting.git
