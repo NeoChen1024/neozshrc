@@ -53,4 +53,4 @@ done
 
 # Plugins
 try-source zsh-navigation-tools
-try-source fast-syntax-highlighting
+try-source F-Sy-H

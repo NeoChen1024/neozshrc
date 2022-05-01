@@ -4,3 +4,6 @@
 [submodule "fast-syntax-highlighting"]
 	path = fast-syntax-highlighting
 	url = https://github.com/zdharma/fast-syntax-highlighting.git
+[submodule "F-Sy-H"]
+	path = F-Sy-H
+	url = https://github.com/z-shell/F-Sy-H
