@@ -20,10 +20,10 @@ precmd ()
 	case "$TERM" in
 		linux) echo -en "\e[?8c";;
 		xterm*|*rxvt*|Eterm|eterm|rxvt-unicode|urxvt)
-			echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/$HOME/~}\007"
+			echo -ne "\033]0;${USER}@${HOST%%.*}\07"
 			;;
 		screen|tmux|tmux-*)
-			echo -ne "\033_${USER}@${HOSTNAME%%.*}:${PWD/$HOME/~}\033\\"
+			echo -ne "\033_${USER}@${HOST%%.*}\033"
 			;;
 	esac
 }
