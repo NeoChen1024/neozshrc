@@ -8,18 +8,6 @@ reenv()
 # 完全的清除scrollback
 cls() {tput clear && tput init}
 
-# 圖片pastebin
-elimage()
-{
-curl -F "name=@${1}" https://img.vim-cn.com/
-}
-
-# 文字pastebin
-vinergy ()
-{
-curl -F 'vimcn=<-' https://cfp.vim-cn.com/
-}
-
 # 萬用pastebin
 pb ()
 {
@@ -27,14 +15,18 @@ pb ()
 }
 
 # 決定要不要使用VGA Software Cursor （變成 block cursor）
-if [ $TERM = linux ]; then
-
-	precmd ()
-	{
-		echo -en "\e[?8c"
-	}
-
-fi
+precmd ()
+{
+	case "$TERM" in
+		linux) echo -en "\e[?8c";;
+		xterm*|*rxvt*|Eterm|eterm|rxvt-unicode|urxvt)
+			echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/$HOME/~}\007"
+			;;
+		screen|tmux|tmux-*)
+			echo -ne "\033_${USER}@${HOSTNAME%%.*}:${PWD/$HOME/~}\033\\"
+			;;
+	esac
+}
 
 gpg-simple-sign()
 {
