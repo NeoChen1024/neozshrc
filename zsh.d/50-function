@@ -18,7 +18,7 @@ pb ()
 # 或是在 Console 以外的終端機上面設定視窗標題
 precmd ()
 {
-	local title="${USER}@${HOST%%.*}"
+	local title="${HOST%%.*}"
 	case "$TERM" in
 		linux) echo -en "\e[?8c";;
 		alacritty)
