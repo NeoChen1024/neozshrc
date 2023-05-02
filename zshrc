@@ -23,6 +23,7 @@ setopt hist_ignore_space
 setopt auto_cd
 
 HISTFILE="$HOME/.histfile"
+fpath=($HOME/.zsh.d/fp $fpath)
 HISTSIZE=65536
 SAVEHIST=65536
 typeset -A key
