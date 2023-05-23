@@ -66,7 +66,7 @@ batch_picture_optim()
 		for dir in "$@"; do
 			find "$dir" -name '*.png' -print0
 		done
-	) | nice -n 20 parallel --bar -0 -j $NJOBS oxipng -o max -v -t 1
+	) | nice -n 20 parallel --bar -0 -j $NJOBS oxipng -o max -i 0 -v -t 1
 }
 
 wttr.in()
