@@ -4,15 +4,15 @@
 declare OS="OTHER"
 
 # Platform Specific
-case $OSTYPE in
-	*bsd*) OS="BSD";;
-	linux*) OS="LINUX";;
+case "$(uname)" in
+	*BSD) OS="BSD";;
+	Linux) OS="LINUX";;
 esac
 
 declare -i NJOBS=1
 
-if [ "$OS" = "LINUX" ]; then
-	export NJOBS=`nproc`
+if which nproc 2>&1 > /dev/null; then
+	NJOBS="$(nproc)"
 fi
 
 setopt no_global_rcs
