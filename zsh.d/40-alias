@@ -5,7 +5,6 @@ if [ $OS = "BSD" ]; then
 	alias fll='fls -lha'
 	alias ls='gls -F --color=auto'
 	alias neodate="date +'%Y%m%dT%H%M%S%z'"
-	alias zfs-ls="zfs list -t all -o name,used,referenced,type,mountpoint,compression,compressratio,recordsize,available"
 else
 	alias ls='ls -F --color=auto'
 	alias neodate="date +'%Y%m%dT%H%M%S%z'"
@@ -13,6 +12,8 @@ else
 
 	alias vm="qemu-system-x86_64 -smp 2 -m 2048 -accel kvm"
 fi
+
+alias zfs-ls="zfs list -t all -o name,used,referenced,type,mountpoint,compression,compressratio,checksum,recordsize,available"
 
 alias la='ls -A'
 alias l='ls -CF'
