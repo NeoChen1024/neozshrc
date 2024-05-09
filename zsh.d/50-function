@@ -122,3 +122,11 @@ scratchpad()
 {
 	truncate -s 0 "$1"
 }
+
+tinit()
+{
+	tmux rename-session "Neo_Chen"
+	tmux rename-window "MAIN"
+	tmux new-window -d -a -n "CONS"
+	sudo -i
+}
