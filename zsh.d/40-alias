@@ -28,3 +28,5 @@ alias ipecho="curl ipecho.net/plain"
 # Shortcut to save keystrokes
 alias t=tmux
 alias q=exit
+
+alias avrph='rsync --old-args --inplace -avrPh'
