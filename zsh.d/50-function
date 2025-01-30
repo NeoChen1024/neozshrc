@@ -136,7 +136,7 @@ hfget()
 	local url="$1"
 	local to_dir="${2:-.}"
 	local dirname="${url##*/}"
-	huggingface-cli download "${url}" --local-dir "${to_dir}/${filename}"
+	huggingface-cli download "${url}" --local-dir "${to_dir}/${dirname}"
 }
 
 venv()
