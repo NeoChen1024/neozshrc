@@ -130,3 +130,24 @@ tinit()
 	tmux new-window -d -a -n "CONS"
 	sudo -i
 }
+
+hfget()
+{
+	local url="$1"
+	local to_dir="${2:-.}"
+	local dirname="${url##*/}"
+	huggingface-cli download "${url}" --local-dir "${to_dir}/${filename}"
+}
+
+venv()
+{
+	if [ -d "venv" ]; then
+		source venv/bin/activate
+	elif [ -d ".venv" ]; then
+		source .venv/bin/activate
+	elif [ -d "$1" ]; then
+		source "$1/bin/activate"
+	else
+		echo "No venv found"
+	fi
+}
