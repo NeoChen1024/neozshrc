@@ -141,13 +141,13 @@ hfget()
 
 venv()
 {
-	if [ -d "venv" ]; then
-		source venv/bin/activate
-	elif [ -d ".venv" ]; then
-		source .venv/bin/activate
-	elif [ -d "$1" ]; then
-		source "$1/bin/activate"
-	else
-		echo "No venv found"
-	fi
+	local dir="${1:-.}"
+	for venv in "${dir}/.venv" "${dir}/venv" "${dir}" ; do
+		if [ -f "${venv}/bin/activate" ]; then
+			source "${venv}/bin/activate"
+			return 0
+		fi
+	done
+	echo "No venv found"
+	return 1
 }
