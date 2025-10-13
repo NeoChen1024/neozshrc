@@ -36,7 +36,6 @@ autoload run-help-svk
 autoload zmv
 
 umask 037
-mesg y # 打開talk聊天支援
 
 # Load Host Specific RC
 host_specific()
@@ -47,7 +46,7 @@ host_specific()
 	fi
 }
 
-# 載入zsh.d裡的所有鬼東東
+# 載入 zsh.d 裡的所有鬼東東
 for i in ~/.zsh.d/??-* ;do
 source $i
 done
