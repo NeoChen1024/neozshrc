@@ -13,7 +13,7 @@ else
 	alias vm="qemu-system-x86_64 -smp 2 -m 2048 -accel kvm"
 fi
 
-alias zfs-ls="zfs list -t all -o name,used,referenced,type,mountpoint,compression,compressratio,checksum,recordsize,available"
+alias zfs-ls="zfs list -o name,used,referenced,type,mountpoint,compression,compressratio,checksum,recordsize,available"
 
 alias la='ls -A'
 alias l='ls -CF'
@@ -23,7 +23,7 @@ alias sudo="sudo "
 alias grep='grep --color=auto'
 
 alias date_stamp="date +'%Y%m%dT%H%M%S%z'"
-alias ipecho="curl ipecho.net/plain"
+alias ipecho="curl https://ipecho.net/plain"
 
 # Shortcut to save keystrokes
 alias t=tmux
