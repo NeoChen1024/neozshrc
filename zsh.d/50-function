@@ -136,7 +136,11 @@ hfget()
 	local url="$1"
 	local to_dir="${2:-.}"
 	local dirname="${url##*/}"
-	shift 2
+	if [ "${#}" -gt 2 ]; then
+		shift 2
+	else
+		set --
+	fi
 	hf download "${url}" --local-dir "${to_dir}/${dirname}" "${@}"
 }
 
