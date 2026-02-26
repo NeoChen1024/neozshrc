@@ -136,7 +136,8 @@ hfget()
 	local url="$1"
 	local to_dir="${2:-.}"
 	local dirname="${url##*/}"
-	hf download "${url}" --local-dir "${to_dir}/${dirname}"
+	shift 2
+	hf download "${url}" --local-dir "${to_dir}/${dirname}" "${@}"
 }
 
 venv()
